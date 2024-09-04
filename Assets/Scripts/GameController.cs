@@ -17,6 +17,14 @@ public class GameController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textoLevel;
     private float level = 1;
     private float pontosNextLevel = 10;
+    private float intervaloMin = 0.7f;
+    private float intervaloMax = 2f;
+
+    public float getLevel()
+    {
+        return this.level;
+    }
+
     void Start()
     {
         posicaoObstaculo.x = 12f;
@@ -28,16 +36,22 @@ public class GameController : MonoBehaviour
 		criarObstaculo();
         aumentarPontuacao();
         aumentarLevel();
-
 	}
+
+
 
     void aumentarLevel()
     {
         if (pontosNextLevel < score)
         {
-            pontosNextLevel *= 2;
+            pontosNextLevel += 15;
             level++;
             textoLevel.text = "Level: " + level.ToString();
+            if(level < 6)
+            {
+				intervaloMax -= 0.2f;
+				intervaloMin -= 0.05f;
+			}
         }
     }
 
@@ -48,7 +62,7 @@ public class GameController : MonoBehaviour
 		{
 			posicaoObstaculo.y = Random.Range(posMin, posMax);
 			Instantiate(obstaculo, posicaoObstaculo, Quaternion.identity);
-			timer = Random.Range(0.7f, 2f);
+			timer = Random.Range(intervaloMin, intervaloMax);
 		}
         
 	}
