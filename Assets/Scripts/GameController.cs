@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -11,6 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject obstaculo;
     [SerializeField] private float posMin = -1.4f;
     [SerializeField] private float posMax = 2.4f;
+    [SerializeField] private AudioClip levelupSound;
     private Vector3 posicaoObstaculo;
     private float score = 0;
     [SerializeField] private TextMeshProUGUI textoScore;
@@ -36,6 +38,12 @@ public class GameController : MonoBehaviour
 		criarObstaculo();
         aumentarPontuacao();
         aumentarLevel();
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			SceneManager.LoadScene(1);
+            Time.timeScale = 1;
+		}
+
 	}
 
 
@@ -47,6 +55,7 @@ public class GameController : MonoBehaviour
             pontosNextLevel += 15;
             level++;
             textoLevel.text = "Level: " + level.ToString();
+            AudioSource.PlayClipAtPoint(levelupSound, new Vector3(0, 0, -10), 0.02f);
             if(level < 6)
             {
 				intervaloMax -= 0.2f;

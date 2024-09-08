@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1556291436088887993}
+  - component: {fileID: 9019177200471325392}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -31,3 +32,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9019177200471325392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5664216450894502715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6017ef99f7df3f54490a48fae83dd4f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 2
+  obstaculo: {fileID: 4500765687056334001, guid: d1e797b924650b54099bfaf90a931a28, type: 3}
+  posMin: -1.4
+  posMax: 2.4
+  levelupSound: {fileID: 8300000, guid: 85fa35581ee647c459f4131c2e2b54cf, type: 3}
+  textoScore: {fileID: 0}
+  textoLevel: {fileID: 0}
